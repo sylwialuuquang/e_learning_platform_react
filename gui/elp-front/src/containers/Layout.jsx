@@ -8,11 +8,10 @@ class Layout extends Component {
     render() { 
         return ( 
             <React.Fragment>
-                <Navbar />
+                <Navbar {...this.props}/>
                 <div className="container">
                   <div className="site-layout-content">{this.props.children}</div>
                 </div>
-                
             </React.Fragment>
          );
     }

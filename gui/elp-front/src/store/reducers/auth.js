@@ -3,8 +3,9 @@ import { updateObject } from '../utility'
 
 
 const InitialState = {
-    token: null,
+    token: localStorage.getItem("token"),
     user_id: null,
+    user_first_name: localStorage.getItem("first_name"),
     groups: [],
     error: null,
     loading: false
@@ -21,6 +22,7 @@ const authSuccess = (state, action) => {
     return updateObject(state, {
         token: action.token,
         user_id: action.user_id,
+        user_first_name: action.user_first_name,
         groups: action.groups,
         error: null,
         loading: false
@@ -29,7 +31,7 @@ const authSuccess = (state, action) => {
 
 const authFail = (state, action) => {
     return updateObject(state, {
-        error:action.error,
+        error: action.error,
         loading: false
     })
 }
@@ -38,6 +40,7 @@ const authLogout = (state, action) => {
     return updateObject(state, {
         token: null,
         user_id: null,
+        user_first_name: null,
         groups: []
     })
 }

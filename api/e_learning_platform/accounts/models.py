@@ -30,6 +30,7 @@ class CustomAuthToken(ObtainAuthToken):
             'token': token.key,
             'created': datetime.now(),
             'user_id': user.id,
+            'user_first_name': user.first_name,
             'groups': map(lambda x: {'name': x.name, 'id': x.id}, user.groups.all()),
         })
 
